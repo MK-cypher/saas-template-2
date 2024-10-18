@@ -2,26 +2,237 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: 0 0% 100%;
+    --foreground: 224 71.4% 4.1%;
+    --card: 0 0% 100%;
+    --card-foreground: 224 71.4% 4.1%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 224 71.4% 4.1%;
+    --primary: 262.1 83.3% 57.8%;
+    --primary-foreground: 210 20% 98%;
+    --secondary: 220 14.3% 95.9%;
+    --secondary-foreground: 220.9 39.3% 11%;
+    --muted: 220 14.3% 95.9%;
+    --muted-foreground: 220 8.9% 46.1%;
+    --accent: 220 14.3% 95.9%;
+    --accent-foreground: 220.9 39.3% 11%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 20% 98%;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 262.1 83.3% 57.8%;
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    --background: 224 71.4% 4.1%;
+    --foreground: 210 20% 98%;
+    --card: 224 71.4% 4.1%;
+    --card-foreground: 210 20% 98%;
+    --popover: 224 71.4% 4.1%;
+    --popover-foreground: 210 20% 98%;
+    --primary: 263.4 70% 50.4%;
+    --primary-foreground: 210 20% 98%;
+    --secondary: 215 27.9% 16.9%;
+    --secondary-foreground: 210 20% 98%;
+    --muted: 215 27.9% 16.9%;
+    --muted-foreground: 217.9 10.6% 64.9%;
+    --accent: 215 27.9% 16.9%;
+    --accent-foreground: 210 20% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 20% 98%;
+    --border: 215 27.9% 16.9%;
+    --input: 215 27.9% 16.9%;
+    --ring: 263.4 70% 50.4%;
   }
 }
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+.remove-arrow svg:not(.keep) {
+  display: none;
+}
+.section-card {
+  padding: 20px;
+  border-radius: 20px;
+  border: 1px solid hsl(var(--border));
+  /* background-color: hsl(var(--foreground) / 2%);
+  box-shadow: 0 0 10px 1px hsl(var(--foreground) / 15%); */
+}
+
+.col-2 {
+  display: flex;
+  gap: 30px;
+}
+.col-2 > div {
+  flex-basis: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.col-3 {
+  display: flex;
+  gap: 30px;
+}
+.col-3 > div {
+  flex-basis: 33.33%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.seperator {
+  position: relative;
+  margin-block: 30px;
+  width: 100%;
+  height: 1px;
+}
+
+.seperator::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  background-color: orange;
+  background: linear-gradient(90deg, transparent, hsl(var(--foreground)), transparent);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+section {
+  padding: 50px 0;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  color: hsl(var(--foreground));
+  text-decoration: none;
+}
+button {
+  cursor: pointer;
+}
+
+form {
+  background-color: hsl(var(--foreground) / 3%);
+  padding: 20px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+}
+
+* > :has(input:focus) > label {
+  color: hsl(var(--primary));
+}
+
+label {
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.description {
+  color: hsl(var(--foreground) / 70%);
+}
+
+ul li {
+  position: relative;
+}
+
+ul li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 0;
+  height: 1px;
+  background-color: hsl(var(--primary));
+  transition: 0.3s;
+}
+
+ul li:hover::before {
+  width: 100%;
+}
+
+.page-header {
+  background: url("/hero.jpg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  position: relative;
+}
+
+.page-header::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: #0008;
+  background: linear-gradient(90deg, #0008 70%, #fff2);
+  z-index: 0;
+}
+
+.page-header .container {
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  color: white;
+}
+
+/* theming */
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+/* theming */
+
+/* responsive  */
+
+.container {
+  margin: 0 auto;
+}
+
+@media (min-width: 1200px) {
+  .container {
+    width: 1100px;
   }
+}
+
+@media (max-width: 1200px) {
+  .container {
+    width: 90%;
+  }
+}
+@media (max-width: 650px) {
+  .container {
+    width: 98%;
+  }
+}
+
+.border-glow::before {
+  content: "";
+  position: absolute;
+  inset: 0px;
+  /* z-index: 1; */
+  background: radial-gradient(150px circle at var(--x) var(--y), rgb(157, 4, 228), transparent);
 }
