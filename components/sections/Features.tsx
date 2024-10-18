@@ -3,7 +3,7 @@ import {MapPinIcon, MessageSquareDotIcon, ShieldCheckIcon, Star, User, Zap} from
 
 export default function Features() {
   return (
-    <section>
+    <section id="features">
       <div className="container">
         <h1 className="font-bold text-5xl text-center mb-4">Shaped to meet your needs</h1>
         <p className="mb-10 text-center max-w-2xl mx-auto">

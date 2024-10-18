@@ -8,7 +8,7 @@ export default function Pricing() {
   const [type, setType] = useState<"monthly" | "annual">("monthly");
 
   return (
-    <section className="container">
+    <section className="container" id="pricing">
       <div className="flex justify-center items-center">
         <div className="flex items-center py-2 px-4 border rounded-lg gap-1 relative">
           <div

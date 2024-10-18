@@ -1,3 +1,4 @@
+import {navLinks} from "@/lib/consts";
 import Link from "next/link";
 
 export default function Footer() {
@@ -8,12 +9,11 @@ export default function Footer() {
           <Link href="/">Logo</Link>
         </div>
         <ul className="flex justify-center items-center gap-5 flex-wrap">
-          <li>
-            <Link href="/pricing">Pricing</Link>
-          </li>
-          <li>
-            <Link href="/support">Support</Link>
-          </li>
+          {navLinks.map((item, i) => (
+            <li key={i} className="">
+              <Link href={item.href}>{item.link}</Link>
+            </li>
+          ))}
           <li>
             <Link href="/login">Login</Link>
           </li>

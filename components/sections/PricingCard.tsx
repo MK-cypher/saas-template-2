@@ -51,9 +51,12 @@ export default function PricingCard({item, type, i}: props) {
   }, [type]);
   return (
     <div
-      className={`px-5 max-sm:w-full border rounded-2xl relative ${
-        i == 1 && "sm:scale-[1.15] border-primary z-[1] sm:px-7"
-      } bg-background/30 backdrop-blur sm:hover:-translate-y-2 transition-all duration-300`}
+      className={`max-md:px-5 px-8 max-sm:w-full border rounded-2xl relative ${
+        i == 1 && "sm:scale-[1.15] border-primary z-[1] md:px-10 sm:px-7"
+      }
+      ${i == 0 && "sm:rounded-r-none"}
+      ${i == 2 && "sm:rounded-l-none"}
+      bg-background/30 backdrop-blur sm:hover:-translate-y-2 transition-all duration-300`}
     >
       <div className="py-8 px-5 sm:text-center">
         <div className="sm:text-center text-xs px-6 py-0.5 rounded-full border w-fit sm:mx-auto">{item.type}</div>

@@ -1,5 +1,24 @@
 import {ShieldCheckIcon, User} from "lucide-react";
 
+export const navLinks = [
+  {
+    link: "Features",
+    href: "#features",
+  },
+  {
+    link: "Products",
+    href: "#products",
+  },
+  {
+    link: "Pricing",
+    href: "#pricing",
+  },
+  {
+    link: "FAQs",
+    href: "#faq",
+  },
+];
+
 export const mainFeature = [
   {
     Icon: ShieldCheckIcon,

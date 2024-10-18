@@ -2,7 +2,7 @@ import {Accordion, AccordionContent, AccordionItem, AccordionTrigger} from "@/co
 
 export default function Faq() {
   return (
-    <section className="mb-32">
+    <section className="mb-32" id="faq">
       <div className="container">
         <div className="flex gap-20 max-lg:flex-col max-lg:text-center">
           <div className="w-2/5 max-lg:w-full">

@@ -3,7 +3,7 @@ import {User} from "lucide-react";
 
 export default function OtherProducts() {
   return (
-    <section>
+    <section id="products">
       <div className="container">
         <h2 className="text-4xl font-bold w-2/3 mb-12 max-lg:mx-auto max-lg:text-center">
           Customize your customer experience, Go beyond with our top products
